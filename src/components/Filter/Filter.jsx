@@ -1,7 +1,9 @@
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import css from './Filter.module.css';
 
-export function Filter({ value, onChange }) {
+export function Filter({ onChange }) {
+  const value = useSelector(state => state.contactsData.filter);
+
   return (
     <label className={css.name} htmlFor="">
       Find contacts by Name
@@ -14,8 +16,3 @@ export function Filter({ value, onChange }) {
     </label>
   );
 }
-
-Filter.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-};
